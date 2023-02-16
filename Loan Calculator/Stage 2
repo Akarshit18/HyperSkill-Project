@@ -1,0 +1,40 @@
+loan_principal = 'Loan principal: 1000'
+final_output = 'The loan has been repaid!'
+first_month = 'Month 1: repaid 250'
+second_month = 'Month 2: repaid 250'
+third_month = 'Month 3: repaid 500'
+
+# write your code here
+import math
+
+# Prompt user for loan principal
+principal = int(input("Enter the loan principal: "))
+
+# Prompt user to choose calculation to perform
+calculation_type = input("What do you want to calculate? \
+Enter 'm' for number of monthly payments, \
+or 'p' for the monthly payment amount: ")
+
+if calculation_type == 'm':
+    # Prompt user for monthly payment amount
+    monthly_payment = int(input("Enter the monthly payment: "))
+    
+    # Calculate number of months and output result
+    num_months = math.ceil(principal / monthly_payment)
+    last_payment = principal - (num_months - 1) * monthly_payment
+    print(f"It will take {num_months} months to repay the loan.")
+    if last_payment != monthly_payment:
+        print(f"Your last payment will be {last_payment}.")
+        
+elif calculation_type == 'p':
+    # Prompt user for number of months
+    num_months = int(input("Enter the number of months: "))
+    
+    # Calculate monthly payment and output result
+    monthly_payment = math.ceil(principal / num_months)
+    last_payment = principal - (num_months - 1) * monthly_payment
+    print(f"Your monthly payment = {monthly_payment}")
+    if last_payment != monthly_payment:
+        print(f"And your last payment = {last_payment}.")
+
+print(f"{loan_principal}\n{first_month}\n{second_month}\n{third_month}\n{final_output}")
